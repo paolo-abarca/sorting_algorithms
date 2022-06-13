@@ -109,10 +109,19 @@ void swap(listint_t **head, listint_t *order)
 
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *order;
+	listint_t *order, *len;
+	int i;
 	int flag = 1;
 
-	if (list == NULL || !*list || !(*list)->next)
+	if (!list || !*list || !(*list)->next)
+		return;
+
+	len = *list;
+
+	for (i = 0; len->next != NULL; i++)
+		len = len->next;
+
+	if (i < 2)
 		return;
 
 	order = *list;
