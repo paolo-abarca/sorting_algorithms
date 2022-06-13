@@ -112,7 +112,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *order, *len;
 	int flag = 1, i;
 
-	if (!list || !(*list) || (!((*list)->prev) && !((*list)->next)))
+	if (!list || !(*list) || !(*list)->next)
 		return;
 
 	len = *list;
