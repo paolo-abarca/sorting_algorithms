@@ -139,7 +139,7 @@ void cocktail_sort_list(listint_t **list)
 
 		while (order->prev != NULL)
 		{
-			if (order->n < order->prev->n)
+			if (order->prev->n > order->n)
 			{
 				swap_2(list, order);
 				print_list(*list);
