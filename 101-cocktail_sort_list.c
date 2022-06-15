@@ -92,11 +92,20 @@ void swap(listint_t **head, listint_t *order)
 		tmp = order->next;
 		order->next = NULL;
 		tmp->prev = NULL;
-		tmp->next->prev = order;
-		order->next = tmp->next;
-		tmp->next = order;
-		order->prev = tmp;
-		*head = tmp;
+		if (tmp->next != NULL)
+		{
+			tmp->next->prev = order;
+			order->next = tmp->next;
+			tmp->next = order;
+			order->prev = tmp;
+			*head = tmp;
+		}
+		else
+		{
+			tmp->next = order;
+			order->prev = tmp;
+			*head = tmp;
+		}
 	}
 }
 
